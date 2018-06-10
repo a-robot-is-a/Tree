@@ -7,7 +7,7 @@ int main(){
 
 	Tree tree;
 
-	cout << tree.newNode(47)->data;
+	cout << tree.newNode(42)->data;
 
 	char end;
 	cout << "\nProgramm beenden? j "; cin >> end;
