@@ -110,10 +110,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FirstTree.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Tree.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FirstTree.h" />
     <ClInclude Include="Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -21,9 +21,15 @@
     <ClCompile Include="Tree.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="FirstTree.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tree.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="FirstTree.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
