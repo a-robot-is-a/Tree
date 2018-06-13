@@ -18,5 +18,6 @@ private:
 public:
 
 	FirstTree(int data);
+	void next(int data);
 	void display();
 };

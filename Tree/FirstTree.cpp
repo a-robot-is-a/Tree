@@ -7,6 +7,23 @@ FirstTree::FirstTree(int data)
 	root->left = root->right = NULL;
 }
 
+void FirstTree::next(int data)
+{
+	int remain = data % 2;
+	FirstTree::newNode = (node *)malloc(sizeof(node));
+	newNode->data = data;
+	if (remain == 0) // if the number is even
+	{
+		root->left = newNode;
+		root->right = NULL;
+	}
+	else
+	{
+		root->left = NULL;
+		root->right = newNode;
+	}
+}
+
 void FirstTree::display()
 {
 	if (root == NULL)
@@ -15,6 +32,16 @@ void FirstTree::display()
 	}
 	else
 	{
-		printf("\n\t\tData of root = %d\n",root->data);
+		if (root->left != NULL || root->right != NULL)
+		{
+			if (root->left != NULL)
+			{
+				printf("\n\t\tData of root->left = %d\n", root->left->data);
+			}
+			else
+			{
+				printf("\n\t\tData of root->right = %d\n", root->right->data);
+			}
+		}		
 	}
 }
