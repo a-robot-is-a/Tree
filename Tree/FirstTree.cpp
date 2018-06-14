@@ -15,33 +15,38 @@ void FirstTree::next(int data)
 	if (remain == 0) // if the number is even
 	{
 		root->left = newNode;
-		root->right = NULL;
 	}
 	else
 	{
-		root->left = NULL;
 		root->right = newNode;
 	}
 }
 
 void FirstTree::display()
 {
-	if (root == NULL)
+	
+	if (root->left != NULL || root->right != NULL)
 	{
-		printf( "\n\t\tNo data\n");
-	}
-	else
-	{
-		if (root->left != NULL || root->right != NULL)
+		if ((root->left != NULL) && (root->right != NULL))
+		{
+			printf("\n\t\tData of root->left = %d\n", root->left->data);
+			printf("\n\t\tData of root->right = %d\n", root->right->data);
+		}
+		else
 		{
 			if (root->left != NULL)
 			{
 				printf("\n\t\tData of root->left = %d\n", root->left->data);
 			}
-			else
+			else if (root->right != NULL)
 			{
 				printf("\n\t\tData of root->right = %d\n", root->right->data);
 			}
 		}		
 	}
+	else
+	{
+		printf("\n\t\tDeep winter - no leaves in the tree.\n");
+	}
+	
 }

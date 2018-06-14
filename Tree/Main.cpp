@@ -13,6 +13,7 @@ int main(){
 	// The first tree
 	FirstTree fTree(0);
 	fTree.next(2);
+	fTree.next(3);
 	fTree.display();
 
 
