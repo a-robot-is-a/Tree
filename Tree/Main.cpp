@@ -4,6 +4,16 @@
 #include <iostream>
 using namespace std;
 
+void beenden()
+{
+	char end;
+	while (true)
+	{
+		cout << "\nProgramm beenden? j/n "; cin >> end;
+		if (end == 'j') { break; }
+	}
+}
+
 int main(){
 
 	Tree tree;
@@ -16,12 +26,7 @@ int main(){
 	fTree.next(3);
 	fTree.display();
 
-
-
-	char end;
-	cout << "\nProgramm beenden? j/n "; cin >> end;
-	if (end == 'j') { return 0; }
-	else { cin >> end; }
-
+	
+	beenden();
 	return 0;
 }
