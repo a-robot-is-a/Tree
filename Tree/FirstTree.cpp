@@ -1,52 +1,48 @@
 #include "FirstTree.h"
 
-FirstTree::FirstTree(int data)
+FirstTree::FirstTree()
 {
-	FirstTree::root = (node *)malloc(sizeof(node));
-	root->data = data;
-	root->left = root->right = NULL;
+	leaf = (node *)malloc(sizeof(node));
+	leaf->left = NULL;
+	leaf->right = NULL;
 }
 
-void FirstTree::next(int data)
+void FirstTree::insert(int key)
 {
-	int remain = data % 2;
-	FirstTree::newNode = (node *)malloc(sizeof(node));
-	newNode->data = data;
-	if (remain == 0) // if the number is even
+	int remain = key % 2;
+	if (remain == 0)
 	{
-		root->left = newNode;
+		leaf->left = (node *)malloc(sizeof(node));
+		leaf->left->data = key;
+		leaf->left->left = NULL;    //Sets the left child of the child node to null
+		leaf->left->right = NULL;   //Sets the right child of the child node to null
 	}
 	else
 	{
-		root->right = newNode;
+		leaf->right = (node *)malloc(sizeof(node));
+		leaf->right->data = key;
+		leaf->right->left = NULL;  //Sets the left child of the child node to null
+		leaf->right->right = NULL; //Sets the right child of the child node to null
 	}
 }
 
 void FirstTree::display()
 {
-	
-	if (root->left != NULL || root->right != NULL)
+	if (leaf->left != NULL || leaf->right != NULL)
 	{
-		if ((root->left != NULL) && (root->right != NULL))
+		while (leaf->left != NULL)
 		{
-			printf("\n\t\tData of root->left = %d\n", root->left->data);
-			printf("\n\t\tData of root->right = %d\n", root->right->data);
+			printf("\n\t\tData of left leaf = %d\n", leaf->left->data);
+			leaf->left = leaf->left->left;
 		}
-		else
+		while (leaf->right != NULL)
 		{
-			if (root->left != NULL)
-			{
-				printf("\n\t\tData of root->left = %d\n", root->left->data);
-			}
-			else if (root->right != NULL)
-			{
-				printf("\n\t\tData of root->right = %d\n", root->right->data);
-			}
-		}		
+			printf("\n\t\tData of right leaf = %d\n", leaf->right->data);
+			leaf->right = leaf->right->right;
+		}
 	}
 	else
 	{
 		printf("\n\t\tDeep winter - no leaves in the tree.\n");
 	}
-	
 }

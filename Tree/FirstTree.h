@@ -12,12 +12,11 @@ private:
 		node *right;
 	};
 
-	node *root;
-	node *newNode;
+	node *leaf;
 
 public:
 
-	FirstTree(int data);
-	void next(int data);
+	FirstTree();
+	void insert(int key);
 	void display();
 };

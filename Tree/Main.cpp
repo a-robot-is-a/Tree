@@ -21,9 +21,9 @@ int main(){
 		<< tree.newNode(42)->data << " :)" << endl;
 
 	// The first tree
-	FirstTree fTree(0);
-	fTree.next(2);
-	fTree.next(3);
+	FirstTree fTree;
+	fTree.insert(2);
+	fTree.insert(3);
 	fTree.display();
 
 	
