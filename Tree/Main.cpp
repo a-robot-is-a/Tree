@@ -22,10 +22,11 @@ int main(){
 
 	// The first tree
 	FirstTree fTree;
-	fTree.insert(2);
-	fTree.insert(3);
+	fTree.insert(2, fTree.leaf);
+	fTree.insert(4, fTree.leaf);
+	fTree.insert(3, fTree.leaf);
+	fTree.insert(5, fTree.leaf);
 	fTree.display();
-
 	
 	beenden();
 	return 0;

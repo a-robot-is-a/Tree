@@ -7,22 +7,36 @@ FirstTree::FirstTree()
 	leaf->right = NULL;
 }
 
-void FirstTree::insert(int key)
+void FirstTree::insert(int key, node *leaf)
 {
 	int remain = key % 2;
 	if (remain == 0)
 	{
-		leaf->left = (node *)malloc(sizeof(node));
-		leaf->left->data = key;
-		leaf->left->left = NULL;    //Sets the left child of the child node to null
-		leaf->left->right = NULL;   //Sets the right child of the child node to null
+		if (leaf->left != NULL)
+		{
+			insert(key, leaf->left);
+		}
+		else
+		{
+			leaf->left = (node *)malloc(sizeof(node));
+			leaf->left->data = key;
+			leaf->left->left = NULL;    //Sets the left child of the child node to null
+			leaf->left->right = NULL;   //Sets the right child of the child node to null
+		}
 	}
 	else
 	{
-		leaf->right = (node *)malloc(sizeof(node));
-		leaf->right->data = key;
-		leaf->right->left = NULL;  //Sets the left child of the child node to null
-		leaf->right->right = NULL; //Sets the right child of the child node to null
+		if (leaf->right != NULL)
+		{
+			insert(key, leaf->right);
+		}
+		else
+		{
+			leaf->right = (node *)malloc(sizeof(node));
+			leaf->right->data = key;
+			leaf->right->left = NULL;  //Sets the left child of the child node to null
+			leaf->right->right = NULL; //Sets the right child of the child node to null
+		}
 	}
 }
 
