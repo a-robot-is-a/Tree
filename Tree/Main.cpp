@@ -24,6 +24,7 @@ int main(){
 	FirstTree fTree;
 	fTree.insert(2);
 	fTree.insert(3);
+	fTree.insert(4);
 
 	fTree.display();
 	
