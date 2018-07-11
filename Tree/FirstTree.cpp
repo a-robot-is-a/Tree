@@ -12,39 +12,40 @@ void FirstTree::insert(int key)
 	int remain = key % 2;
 	if (remain == 0)	// if key is even
 	{
-		if (root->left == NULL)
+		if (root->left == NULL)	// if there is no left root child
 		{
 			leaf = (node *)malloc(sizeof(node));
 			leaf->data = key;
-			leaf->left = NULL;    // child nodes to null
+			leaf->left = NULL;
 			leaf->right = NULL;
 			root->left = leaf;
 		}
-		else
+		else	// if there is a root child
 		{
-			child = (node *)malloc(sizeof(node));	// if there is a root child
+			child = (node *)malloc(sizeof(node));
 			child->data = key;
-			child->left = NULL;    // child nodes to null
+			child->left = NULL;
 			child->right = NULL;
 			leaf->left = child;
 		}
 	}
-	else
+	else	// if key is odd
 	{
-		if (root->right == NULL)
+		if (root->right == NULL)	// if there is no right root child
 		{
 			leaf = (node *)malloc(sizeof(node));
 			leaf->data = key;
-			leaf->left = NULL;    // child nodes to null
+			leaf->left = NULL;
 			leaf->right = NULL;
 			root->right = leaf;
 		}
-		else
-		{	// TODO
-			leaf = (node *)malloc(sizeof(node));
-			leaf->data = key;
-			leaf->left = NULL;    // child nodes to null
-			leaf->right = NULL;
+		else	// if there is a root child
+		{
+			child = (node *)malloc(sizeof(node));
+			child->data = key;
+			child->left = NULL;
+			child->right = NULL;
+			leaf->left = child; // make a flowchart!
 		}
 	}
 }
