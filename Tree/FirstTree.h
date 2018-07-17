@@ -14,7 +14,8 @@ private:
 
 	node *root;
 	node *leaf;
-	node *child;
+	node *ptLeft;
+	node *ptRight;
 
 public:
 

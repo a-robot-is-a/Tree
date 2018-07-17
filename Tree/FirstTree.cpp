@@ -3,8 +3,12 @@
 FirstTree::FirstTree()
 {
 	root = (node *)malloc(sizeof(node));
+	root->data = NULL;
 	root->left = NULL;
 	root->right = NULL;
+
+	ptLeft = root;
+	ptRight = root;
 }
 
 void FirstTree::insert(int key)
@@ -12,41 +16,24 @@ void FirstTree::insert(int key)
 	int remain = key % 2;
 	if (remain == 0)	// if key is even
 	{
-		if (root->left == NULL)	// if there is no left root child
-		{
-			leaf = (node *)malloc(sizeof(node));
-			leaf->data = key;
-			leaf->left = NULL;
-			leaf->right = NULL;
-			root->left = leaf;
-		}
-		else	// if there is a root child
-		{
-			child = (node *)malloc(sizeof(node));
-			child->data = key;
-			child->left = NULL;
-			child->right = NULL;
-			leaf->left = child;
-		}
+		leaf = (node *)malloc(sizeof(node));
+		leaf->data = key;
+		leaf->left = NULL;
+		leaf->right = NULL;
+
+		ptLeft->left = leaf;
+		ptLeft = leaf;
+
 	}
-	else	// if key is odd
+	else
 	{
-		if (root->right == NULL)	// if there is no right root child
-		{
-			leaf = (node *)malloc(sizeof(node));
-			leaf->data = key;
-			leaf->left = NULL;
-			leaf->right = NULL;
-			root->right = leaf;
-		}
-		else	// if there is a root child
-		{
-			child = (node *)malloc(sizeof(node));
-			child->data = key;
-			child->left = NULL;
-			child->right = NULL;
-			leaf->left = child; // make a flowchart!
-		}
+		leaf = (node *)malloc(sizeof(node));
+		leaf->data = key;
+		leaf->left = NULL;
+		leaf->right = NULL;
+
+		ptRight->right = leaf;
+		ptRight = leaf;
 	}
 }
 
@@ -54,18 +41,25 @@ void FirstTree::display()
 {
 	if (root->left != NULL || root->right != NULL)
 	{
+		//loop through the leafs
 		if (root->left != NULL)
 		{
-			printf("\n\t\tData of left leaf = %d\n", root->left->data);
-
-			if (leaf->left != NULL)
+			while (root->left != NULL)
 			{
-				printf("\n\t\tData of left leaf child = %d\n", leaf->left->data);
+				printf("\n\t\tData of left leafs = %d\n", root->left->data);
+
+				root->left = root->left->left;
 			}
 		}
+
 		if (root->right != NULL)
 		{
-			printf("\n\t\tData of right leaf = %d\n", root->right->data);
+			while (root->right != NULL)
+			{
+				printf("\n\t\tData of right leafs = %d\n", root->right->data);
+
+				root->right = root->right->right;
+			}
 		}
 	}
 	else
